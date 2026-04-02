@@ -51,7 +51,7 @@ export function TreeView({ step }: TreeViewProps) {
 
       <div className="w-full overflow-auto rounded-xl border bg-background/80">
         <svg
-          className="min-h-[440px] min-w-full"
+          className="h-[60vh] min-h-[400px] w-full"
           viewBox={`0 0 ${Math.max(width, 600)} ${Math.max(height, 420)}`}
           preserveAspectRatio="xMidYMid meet"
         >

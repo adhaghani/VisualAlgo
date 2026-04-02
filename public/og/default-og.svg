@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">VisualAlgo</title>
+  <desc id="desc">Interactive data structure and algorithm visualizer</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g fill="#ffffff" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="80" y="275" font-size="84" font-weight="700">VisualAlgo</text>
+    <text x="80" y="340" font-size="34" opacity="0.9">Interactive data structures and algorithms</text>
+    <text x="80" y="392" font-size="28" opacity="0.8">Step-by-step visual playgrounds for better intuition</text>
+  </g>
+</svg>

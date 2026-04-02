@@ -24,6 +24,11 @@ type PlaybackControlsProps = {
   onReset: () => void
   speedMs: number
   onSpeedChange: (value: number) => void
+  insertLabel?: string
+  deleteLabel?: string
+  inputLabel?: string
+  inputPlaceholder?: string
+  hideDelete?: boolean
 }
 
 const SPEED_OPTIONS = [1200, 850, 450]
@@ -41,6 +46,11 @@ export function PlaybackControls({
   onReset,
   speedMs,
   onSpeedChange,
+  insertLabel = "Insert",
+  deleteLabel = "Delete",
+  inputLabel = "Value",
+  inputPlaceholder = "e.g. 42",
+  hideDelete = false,
 }: PlaybackControlsProps) {
   return (
     <div className="rounded-xl border bg-card p-4 shadow-sm">
@@ -48,21 +58,23 @@ export function PlaybackControls({
 
       <div className="mt-3 flex flex-wrap items-end gap-2">
         <label className="flex min-w-[140px] flex-1 flex-col gap-1 text-xs text-muted-foreground">
-          Value
+          {inputLabel}
           <input
             className="h-9 rounded-md border bg-background px-3 text-sm text-foreground ring-offset-background outline-none focus-visible:ring-2 focus-visible:ring-ring"
             type="number"
             value={inputValue}
             onChange={(event) => onInputChange(event.target.value)}
-            placeholder="e.g. 42"
+            placeholder={inputPlaceholder}
           />
         </label>
 
-        <Button onClick={onInsert}>Insert</Button>
-        <Button variant="secondary" onClick={onDelete}>
-          <Trash2 className="mr-1 h-4 w-4" />
-          Delete
-        </Button>
+        <Button onClick={onInsert}>{insertLabel}</Button>
+        {!hideDelete && (
+          <Button variant="secondary" onClick={onDelete}>
+            <Trash2 className="mr-1 h-4 w-4" />
+            {deleteLabel}
+          </Button>
+        )}
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">

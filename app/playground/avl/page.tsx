@@ -44,7 +44,7 @@ export default function AvlPlaygroundPage() {
 
   return (
     <main className="min-h-svh bg-gradient-to-b from-background to-muted/20 p-4 md:p-6">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-4">
+      <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-4">
         <header className="rounded-xl border bg-card p-4 shadow-sm">
           <h1 className="text-xl font-semibold">
             Mini Algorithm Playground • AVL Rotations
@@ -58,7 +58,9 @@ export default function AvlPlaygroundPage() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-4 xl:grid-cols-[320px_1fr_360px]">
+        <TreeView step={currentFrame} />
+
+        <div className="grid grid-cols-1 gap-4 xl:grid-cols-[320px_1fr]">
           <div className="space-y-4">
             <PlaybackControls
               inputValue={inputValue}
@@ -84,8 +86,6 @@ export default function AvlPlaygroundPage() {
               </div>
             ) : null}
           </div>
-
-          <TreeView step={currentFrame} />
 
           <ExplainerSidebar timeline={timeline} frameIndex={frameIndex} />
         </div>
