@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
 import { TreeView } from "@/components/playground/TreeView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useAvlPlayback } from "@/hooks/useAvlPlayback"
 
 export default function AvlPlaygroundPage() {
@@ -56,6 +57,9 @@ export default function AvlPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="avl" />
+          </div>
         </header>
 
         <TreeView step={currentFrame} />

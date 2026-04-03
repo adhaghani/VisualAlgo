@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
 import { QuickSortView } from "@/components/playground/QuickSortView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useQuickSortPlayback } from "@/hooks/useQuickSortPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -71,6 +72,9 @@ export default function QuickSortPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="quick-sort" />
+          </div>
         </header>
 
         <QuickSortView step={currentFrame} />

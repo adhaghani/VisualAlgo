@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { QueueView } from "@/components/playground/QueueView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useQueuePlayback } from "@/hooks/useQueuePlayback"
 
 function adaptStepForSidebar(
@@ -79,6 +80,9 @@ export default function QueuePlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="queue" />
+          </div>
         </header>
 
         <QueueView step={currentFrame} />

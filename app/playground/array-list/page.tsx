@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 
 import { ArrayListView } from "@/components/playground/ArrayListView"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { Button } from "@/components/ui/button"
 import { useArrayListPlayback } from "@/hooks/useArrayListPlayback"
 import { List, ListMinus, ListPlus, Search } from "lucide-react"
@@ -92,6 +93,9 @@ export default function ArrayListPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="array-list" />
+          </div>
         </header>
 
         <ArrayListView step={currentFrame} />

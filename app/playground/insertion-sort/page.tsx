@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { InsertionSortView } from "@/components/playground/InsertionSortView"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useInsertionSortPlayback } from "@/hooks/useInsertionSortPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -71,6 +72,9 @@ export default function InsertionSortPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="insertion-sort" />
+          </div>
         </header>
 
         <InsertionSortView step={currentFrame} />

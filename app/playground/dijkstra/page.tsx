@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { DijkstraView } from "@/components/playground/DijkstraView"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useDijkstraPlayback } from "@/hooks/useDijkstraPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -75,6 +76,9 @@ export default function DijkstraPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="dijkstra" />
+          </div>
         </header>
 
         <DijkstraView step={currentFrame} />

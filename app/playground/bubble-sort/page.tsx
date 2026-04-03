@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { BubbleSortView } from "@/components/playground/BubbleSortView"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useBubbleSortPlayback } from "@/hooks/useBubbleSortPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -71,6 +72,9 @@ export default function BubbleSortPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="bubble-sort" />
+          </div>
         </header>
 
         <BubbleSortView step={currentFrame} />

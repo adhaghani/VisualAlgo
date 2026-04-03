@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { MergeSortView } from "@/components/playground/MergeSortView"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useMergeSortPlayback } from "@/hooks/useMergeSortPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -71,6 +72,9 @@ export function MergeSortPlaygroundClient() {
         <p className="mt-2 text-xs text-muted-foreground">
           Current: {operationLabel}
         </p>
+        <div className="mt-3">
+          <ViewCodeButton algorithmId="merge-sort" />
+        </div>
       </header>
       <MergeSortView step={currentFrame} />
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-[320px_1fr]">

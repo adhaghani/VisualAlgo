@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { useMemo, useState } from "react"
 
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import HashTableView from "@/components/playground/HashTableView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useHashTablePlayback } from "@/hooks/useHashTablePlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -38,10 +40,7 @@ export default function HashTablePlaygroundPage() {
   const parsedValue = useMemo(() => Number(valueInput), [valueInput])
   const valueIsValid = Number.isInteger(parsedValue)
   const sidebarTimeline = useMemo(
-    () =>
-      timeline
-        .map((s) => adaptStepForSidebar(s))
-        .filter((s): s is NonNullable<typeof s> => s !== null),
+    () => timeline.map((s: any) => adaptStepForSidebar(s)).filter(Boolean),
     [timeline]
   )
   const runAction = () => {
@@ -51,8 +50,8 @@ export default function HashTablePlaygroundPage() {
   }
 
   return (
-    <main className="min-h-svh bg-gradient-to-b from-background to-muted/20 p-4 md:p-6">
-      <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-4">
+    <main className="min-h-svh bg-linear-to-b from-background to-muted/20 p-4 md:p-6">
+      <div className="mx-auto flex w-full max-w-400 flex-col gap-4">
         <header className="rounded-xl border bg-card p-4 shadow-sm">
           <h1 className="text-xl font-semibold">
             Mini Algorithm Playground • Hash Table
@@ -64,6 +63,9 @@ export default function HashTablePlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="hash-table" />
+          </div>
         </header>
         <HashTableView step={currentFrame} />
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-[320px_1fr]">

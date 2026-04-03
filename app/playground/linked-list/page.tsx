@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { LinkedListView } from "@/components/playground/LinkedListView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useLinkedListPlayback } from "@/hooks/useLinkedListPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -70,6 +71,9 @@ export default function LinkedListPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="linked-list" />
+          </div>
         </header>
 
         <LinkedListView step={currentFrame} />

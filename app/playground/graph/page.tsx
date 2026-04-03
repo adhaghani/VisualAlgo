@@ -5,6 +5,7 @@ import { useMemo, useState } from "react"
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { GraphView } from "@/components/playground/GraphView"
 import { PlaybackControls } from "@/components/playground/PlaybackControls"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useGraphPlayback } from "@/hooks/useGraphPlayback"
 
 function adaptStepForSidebar(step: { message: string; phase: string } | null) {
@@ -62,6 +63,9 @@ export default function GraphPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="graph" />
+          </div>
         </header>
 
         <GraphView step={currentFrame} />

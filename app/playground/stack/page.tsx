@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 
 import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import { StackView } from "@/components/playground/StackView"
+import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useStackPlayback } from "@/hooks/useStackPlayback"
 
 function adaptStepForSidebar(
@@ -78,6 +79,9 @@ export default function StackPlaygroundPage() {
           <p className="mt-2 text-xs text-muted-foreground">
             Current: {operationLabel}
           </p>
+          <div className="mt-3">
+            <ViewCodeButton algorithmId="stack" />
+          </div>
         </header>
 
         <StackView step={currentFrame} />
