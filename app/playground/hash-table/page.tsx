@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { useMemo, useState } from "react"
@@ -7,15 +6,15 @@ import { ExplainerSidebar } from "@/components/playground/ExplainerSidebar"
 import HashTableView from "@/components/playground/HashTableView"
 import { ViewCodeButton } from "@/components/ViewCodeButton"
 import { useHashTablePlayback } from "@/hooks/useHashTablePlayback"
+import type { HashTableSnapshotStep } from "@/lib/hashTable/types"
 
-function adaptStepForSidebar(step: { message: string; phase: string } | null) {
-  if (!step) return null
+function adaptStepForSidebar(step: HashTableSnapshotStep) {
   return {
     message: step.message,
-    aiExplanation: "",
-    operation: "hash",
+    aiExplanation: step.aiExplanation,
+    operation: step.operation,
     phase: step.phase,
-    index: 0,
+    index: step.index,
   }
 }
 
@@ -40,7 +39,7 @@ export default function HashTablePlaygroundPage() {
   const parsedValue = useMemo(() => Number(valueInput), [valueInput])
   const valueIsValid = Number.isInteger(parsedValue)
   const sidebarTimeline = useMemo(
-    () => timeline.map((s: any) => adaptStepForSidebar(s)).filter(Boolean),
+    () => timeline.map(adaptStepForSidebar),
     [timeline]
   )
   const runAction = () => {
